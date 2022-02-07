@@ -1,0 +1,51 @@
+{% extends "admins/base.html" %} {% block content %}
+<h1>Show Details</h1>
+<div class="enf">
+    {% if error %}
+    <div class="alert alert-danger">{{ error }}</div>
+    {% endif %}
+</div>
+<form method="POST">
+    {% csrf_token %}
+    <div class="form-group">
+        <label for="account">Enter the Recipient's Account Number</label>
+        <input type="text" name="account_number" id="account" class="form-control" />
+    </div>
+
+    <button type="submit" class="btn btn-primary btn-custom">Show Details</button>
+</form>
+
+<div class="details">
+    {% if data %}
+    <div class="row">
+        <div class="col-md-6"><b>First Name</b></div>
+        <div class="col-md-6">{{ data.first_name }}</div>
+    </div>
+    <div class="row">
+        <div class="col-md-6"><b>Last Name</b></div>
+        <div class="col-md-6">{{ data.last_name }}</div>
+    </div>
+    <div class="row">
+        <div class="col-md-6"><b>Username</b></div>
+        <div class="col-md-6">{{ data.username }}</div>
+    </div>
+    <div class="row">
+        <div class="col-md-6"><b>Email</b></div>
+        <div class="col-md-6">{{ data.email }}</div>
+    </div>
+    <!-- <div class="row">
+        <div class="col-md-6"><b>Password</b></div>
+        <div class="col-md-6"></div>
+    </div> -->
+    <div class="row">
+        <div class="col-md-6"><b>Aadhar Number</b></div>
+        <div class="col-md-6">{{ data.aadhar_number }}</div>
+    </div>
+    <div class="row">
+        <div class="col-md-6"><b>Current Balance</b></div>
+        <div class="col-md-6">{{ data.current_balance }}</div>
+    </div>
+    {% endif %}
+</div>
+
+{% endblock content %}

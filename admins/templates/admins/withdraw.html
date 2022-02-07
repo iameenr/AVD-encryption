@@ -1,0 +1,18 @@
+{% extends "admins/base.html" %} {% block content %}
+<h1>Withdraw</h1>
+<form method="POST">
+    {% csrf_token %}
+    <div class="form-group">
+        <label for="account">Enter the Receipant's Account Number</label>
+        <input type="text" name="account_number" class="form-control" id="account" />
+    </div>
+    <div class="form-group">
+        <label for="amount">Enter your Amount</label>
+        <input type="text" name="amount" class="form-control" id="amount" />
+    </div>
+
+    <button type="submit" class="btn btn-primary btn-custom">Withdraw</button> {% if msg %}
+    <p class="bottom-text">{{ msg }}</p>
+    {% endif %}
+</form>
+{% endblock content %}

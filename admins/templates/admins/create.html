@@ -1,0 +1,36 @@
+{% extends "admins/base.html" %} {% block content %}
+<h1>Create</h1>
+<form method="POST">
+    {% csrf_token %} {% if account_number %} Account Number: {{ account_number }} {% endif %}
+    <div class="form-group">
+        <label for="fname">Enter your First Name</label>
+        <input type="text" name="first_name" id="fname" class="form-control">
+    </div>
+    <div class="form-group">
+        <label for="lname">Enter your Last Name</label>
+        <input type="text" name="last_name" id="lname" class="form-control">
+    </div>
+    <div class="form-group">
+        <label for="username">Enter your Username</label>
+        <input type="text" name="username" id="username" class="form-control">
+    </div>
+    <div class="form-group">
+        <label for="email">Enter your Email</label>
+        <input type="email" name="email" id="email" class="form-control">
+    </div>
+    <div class="form-group">
+        <label for="password">Enter your Password</label>
+        <input type="password" name="password" id="password" class="form-control">
+    </div>
+    <div class="form-group">
+        <label for="aadhar">Enter your Aadhaar Number</label>
+        <input type="text" name="aadhar_number" id="aadhar" class="form-control">
+    </div>
+    <div class="form-group">
+        <label for="currentBalance">Enter your Current Balance</label>
+        <input type="text" name="current_balance" id="currentBalance" class="form-control">
+    </div>
+
+    <button type="submit" class="btn btn-primary btn-custom">Create an Account</button>
+</form>
+{% endblock content %}
